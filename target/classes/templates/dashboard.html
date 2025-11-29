@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: *">
+<div class="row">
+  <div class="col-md-12 mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h2>Hi, <span th:text="${user.firstName}">Player</span> 👋</h2>
+        <p class="text-muted">What would you like to do today?</p>
+      </div>
+      <div>
+        <form th:action="@{/groups/join-code}" method="post" class="d-flex gap-2">
+          <input class="form-control" name="code" placeholder="Enter invite code (e.g. CRIC-48291)" />
+          <button class="btn btn-outline-success">Join</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title"><i class="fa-solid fa-magnifying-glass me-2"></i>Find Your Game</h5>
+        <p class="card-text">Browse and filter existing sports groups.</p>
+        <a class="btn btn-primary mt-auto" th:href="@{/groups/find}">Browse</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title"><i class="fa-solid fa-key me-2"></i>Join With Code</h5>
+        <p class="card-text">Have an invite code? Join instantly.</p>
+        <a class="btn btn-primary mt-auto" th:href="@{/dashboard}">Use Code Above</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title"><i class="fa-solid fa-plus me-2"></i>Create Group</h5>
+        <p class="card-text">Host a new match and share the invite code.</p>
+        <a class="btn btn-primary mt-auto" th:href="@{/groups/create}">Create</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:replace="fragments/footer :: *"></div>
+</html>

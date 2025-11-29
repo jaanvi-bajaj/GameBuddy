@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: *">
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="card-title mb-4"><i class="fa-solid fa-user-plus me-2 text-success"></i>Create your account</h3>
+        <form th:action="@{/signup}" method="post" enctype="multipart/form-data">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">First Name</label>
+              <input class="form-control" name="firstName" required />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Last Name</label>
+              <input class="form-control" name="lastName" required />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" name="email" type="email" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Create Password</label>
+            <input class="form-control" name="passwordHash" type="password" required />
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Age</label>
+              <input class="form-control" name="age" type="number" />
+            </div>
+            <div class="col-md-8 mb-3">
+              <label class="form-label">Gender</label>
+              <select class="form-select" name="gender">
+                <option value="">Prefer not to say</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Sports Interested</label>
+            <div class="d-flex flex-wrap gap-2">
+              <label class="btn btn-outline-secondary">
+                <input type="checkbox" name="sportsInterested" value="Cricket" /> Cricket
+              </label>
+              <label class="btn btn-outline-secondary">
+                <input type="checkbox" name="sportsInterested" value="Football" /> Football
+              </label>
+              <label class="btn btn-outline-secondary">
+                <input type="checkbox" name="sportsInterested" value="Basketball" /> Basketball
+              </label>
+              <label class="btn btn-outline-secondary">
+                <input type="checkbox" name="sportsInterested" value="Badminton" /> Badminton
+              </label>
+              <label class="btn btn-outline-secondary">
+                <input type="checkbox" name="sportsInterested" value="Tennis" /> Tennis
+              </label>
+            </div>
+            <small class="form-text text-muted">(You can choose multiple)</small>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Upload Student ID Card</label>
+            <input class="form-control" name="idFile" type="file" accept="image/*,.pdf" />
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <a class="btn btn-link" th:href="@{/}">Back</a>
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:replace="fragments/footer :: *"></div>
+</html>

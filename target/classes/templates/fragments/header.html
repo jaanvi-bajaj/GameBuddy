@@ -1,0 +1,14 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <!-- basic header fragment used by welcome.html -->
+    <div th:fragment="header">
+      <header style="padding:16px; border-bottom:1px solid #ddd;">
+        <h1 style="margin:0;font-size:20px">GameBuddy</h1>
+        <nav>
+          <a th:href="@{/}" style="margin-right:12px">Home</a>
+        </nav>
+      </header>
+    </div>
+  </body>
+</html>

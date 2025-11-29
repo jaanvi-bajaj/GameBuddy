@@ -1,0 +1,12 @@
+com/gamebuddy/repository/SportGroupRepository.class
+com/gamebuddy/repository/UserRepository.class
+com/gamebuddy/model/SportGroup.class
+com/gamebuddy/service/StorageService.class
+com/gamebuddy/model/User.class
+com/gamebuddy/controller/DashboardController.class
+com/gamebuddy/controller/GroupController.class
+com/gamebuddy/service/GroupService.class
+com/gamebuddy/service/UserService.class
+com/gamebuddy/config/AppConfig.class
+com/gamebuddy/GameBuddyApplication.class
+com/gamebuddy/controller/AuthController.class
