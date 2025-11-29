@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: *">
+<div class="text-center py-5">
+  <h1 class="display-4 text-primary">Welcome to GameBuddy</h1>
+  <p class="lead">Find teammates on campus. Create matches. Share invite codes.</p>
+  <div class="d-flex justify-content-center gap-3 mt-4">
+    <a class="btn btn-success btn-lg" th:href="@{/login}"><i class="fa-solid fa-right-to-bracket me-2"></i>Log In</a>
+    <a class="btn btn-outline-primary btn-lg" th:href="@{/signup}"><i class="fa-solid fa-user-plus me-2"></i>Sign Up</a>
+  </div>
+  <div class="mt-4">
+    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=4c0c7f4b0c8db4f41c1f7b4da7d29ff8" alt="sports" class="img-fluid rounded shadow-sm mt-4" style="max-width:800px;">
+  </div>
+</div>
+<div th:replace="fragments/footer :: *"></div>
+</html>

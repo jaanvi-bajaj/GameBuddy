@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: *">
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4>Create a Sports Group</h4>
+        <form th:action="@{/groups/create}" method="post">
+          <div class="mb-3">
+            <label class="form-label">Sport</label>
+            <select class="form-select" name="sport" id="sportSelect" required>
+              <option th:each="s : ${sportsList}" th:value="${s}" th:text="${s}"></option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Date</label>
+              <input class="form-control" name="date" type="date" required />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Time</label>
+              <input class="form-control" name="time" type="time" required />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label>Location</label>
+            <input class="form-control" name="location" required />
+          </div>
+
+          <div class="mb-3">
+            <label>Max Capacity (auto-filled)</label>
+            <input class="form-control" id="capacity" name="maxCapacity" />
+            <small class="form-text text-muted">You can override the suggested capacity.</small>
+          </div>
+
+          <button class="btn btn-primary">Create Group</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const map = /*[[${sportCapacityMap}]]*/ {};
+  // We'll set capacities client-side if map is present
+  document.addEventListener('DOMContentLoaded', function(){
+    const select = document.getElementById('sportSelect');
+    const cap = document.getElementById('capacity');
+    if(select && cap){
+      const capacities = {
+        'Cricket':22,'Football':22,'Basketball':10,'Badminton':4,'Tennis':4
+      };
+      function setCap(){
+        const s = select.value;
+        cap.value = capacities[s] || 10;
+      }
+      select.addEventListener('change', setCap);
+      setCap();
+    }
+  });
+</script>
+
+<div th:replace="fragments/footer :: *"></div>
+</html>

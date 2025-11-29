@@ -1,0 +1,7 @@
+body {
+  background: linear-gradient(120deg, #f9fafb 0%, #eef2ff 100%);
+}
+.card { border-radius: 12px; }
+.navbar-brand { font-weight: 700; }
+.btn-outline-secondary input[type="checkbox"] { display: none; }
+.form-check-label { margin-left: 8px; }

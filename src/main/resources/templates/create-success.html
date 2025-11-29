@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: *">
+<div class="text-center py-5">
+  <h3 class="text-success">Your group has been created!</h3>
+  <p>Share this code with friends to join:</p>
+  <h2 class="display-6" th:text="${group.inviteCode}">CRIC-57491</h2>
+  <p class="mt-4"><a th:href="@{/groups/{id}(id=${group.id})}" class="btn btn-primary">View Group Details</a></p>
+</div>
+<div th:replace="fragments/footer :: *"></div>
+</html>

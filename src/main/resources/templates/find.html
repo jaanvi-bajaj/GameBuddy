@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: *">
+<div class="d-flex justify-content-between mb-3">
+  <h3>Available Groups</h3>
+  <form class="d-flex gap-2" th:action="@{/groups/find}" method="get">
+    <select class="form-select" name="sport">
+      <option value="">All Sports</option>
+      <option th:each="s : ${sportsList}" th:value="${s}" th:text="${s}"></option>
+    </select>
+    <button class="btn btn-outline-secondary">Filter</button>
+  </form>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-3" th:each="g : ${groups}">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title" th:text="${g.sport}">Cricket</h5>
+        <p>
+          <strong>Date:</strong> <span th:text="${g.date}"></span><br/>
+          <strong>Time:</strong> <span th:text="${g.time}"></span><br/>
+          <strong>Location:</strong> <span th:text="${g.location}"></span>
+        </p>
+        <p>
+          <span class="badge bg-info text-dark" th:text="${g.currentSize()} + ' / ' + ${g.maxCapacity}"></span>
+          <span th:if="${g.full()}" class="badge bg-danger ms-2">FULL</span>
+        </p>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <a th:href="@{/groups/{id}(id=${g.id})}" class="btn btn-link">View Details</a>
+        <form th:action="@{/groups/join-code}" method="post">
+          <input type="hidden" name="code" th:value="${g.inviteCode}" />
+          <button class="btn btn-success" th:disabled="${g.full()}">Join</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:replace="fragments/footer :: *"></div>
+</html>
